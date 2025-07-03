@@ -1,24 +1,233 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>layout-mirror-echo</title>
-    <meta name="description" content="Lovable Generated Project" />
-    <meta name="author" content="Lovable" />
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>스포츠 배당 분석</title>
+    <meta name="description" content="실시간 스포츠 배당률 분석 서비스">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet">
+    
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="odds-header">
+        <div class="header-left">
+            <div class="logo-container">
+                <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/725447125f10dc423a3490b8bbbd5376a5a6a865?placeholderIfAbsent=true" alt="Logo" class="logo">
+            </div>
+        </div>
+        <h1 class="header-title">축구 승부식 배당률</h1>
+        <div class="header-right">
+            <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/b17d6c73e7c492bccafe8e247a17186583fea22b?placeholderIfAbsent=true" alt="Menu" class="header-icon">
+            <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/c9b002b4ae70d16a94b010e98a59854f2227cf63?placeholderIfAbsent=true" alt="Settings" class="header-icon">
+        </div>
+    </header>
 
-    <meta property="og:title" content="layout-mirror-echo" />
-    <meta property="og:description" content="Lovable Generated Project" />
-    <meta property="og:type" content="website" />
-    <meta property="og:image" content="https://lovable.dev/opengraph-image-p98pqg.png" />
+    <!-- Main Container -->
+    <main class="main-container">
+        <!-- Match Info Section -->
+        <section class="match-info">
+            <div class="team home-team">
+                <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/d2c82598ae05c2dfa83c11f1e93a10e5d0a34d29?placeholderIfAbsent=true" alt="맨시티" class="team-logo">
+                <div class="team-info">
+                    <div class="team-color" style="background-color: #BB2828;"></div>
+                    <div class="team-name">맨시티</div>
+                </div>
+            </div>
+            <div class="vs-text">VS</div>
+            <div class="team away-team">
+                <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/3b89b7f7fb1bf0c1cef5c3e3e13b3db0d8f5b25c?placeholderIfAbsent=true" alt="리버풀" class="team-logo">
+                <div class="team-info">
+                    <div class="team-color" style="background-color: #1E3384;"></div>
+                    <div class="team-name">리버풀</div>
+                </div>
+            </div>
+        </section>
 
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:site" content="@lovable_dev" />
-    <meta name="twitter:image" content="https://lovable.dev/opengraph-image-p98pqg.png" />
-  </head>
+        <!-- Market Navigation -->
+        <nav class="market-navigation">
+            <button class="market-tab active" data-tab="winlose">승무패</button>
+            <button class="market-tab" data-tab="handicap">핸디캡</button>
+            <button class="market-tab" data-tab="underover">언더오버</button>
+        </nav>
 
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
-  </body>
+        <!-- Market Content -->
+        <div class="market-content">
+            <!-- 승무패 Content -->
+            <div id="winlose-content" class="tab-content active">
+                <!-- Statistics Section -->
+                <div class="statistics-section">
+                    <div class="stat-item">
+                        <div class="stat-icon"></div>
+                        <div class="stat-label">승률</div>
+                        <div class="stat-values">
+                            <span class="stat-value home">65%</span>
+                            <span class="stat-value away">35%</span>
+                        </div>
+                    </div>
+                    <div class="stat-bar">
+                        <div class="bar-segment home" style="width: 65%;"></div>
+                        <div class="bar-segment away" style="width: 35%;"></div>
+                    </div>
+                </div>
+
+                <!-- Odds Flow Section -->
+                <section class="odds-flow-section domestic">
+                    <div class="section-header">
+                        <h2 class="section-title">국내 배당 흐름</h2>
+                    </div>
+                    
+                    <div class="chart-container">
+                        <div class="chart-labels">
+                            <div class="chart-label initial">초기</div>
+                            <div class="chart-label away">리버풀</div>
+                            <div class="chart-label home">맨시티</div>
+                        </div>
+                        <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/3d20de8e12eead03b3b7b4e50f6bb5b5e6e2dbad?placeholderIfAbsent=true" alt="배당 차트" class="odds-chart">
+                        <div class="chart-stats">
+                            <div class="chart-stat">
+                                <span class="stat-label">승</span>
+                                <span class="stat-value">1.85</span>
+                            </div>
+                            <div class="chart-stat">
+                                <span class="stat-label">패</span>
+                                <span class="stat-value">4.20</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Odds Table -->
+                    <div class="odds-table-container">
+                        <table class="odds-table">
+                            <thead>
+                                <tr>
+                                    <th class="win-header">승</th>
+                                    <th class="draw-header">무</th>
+                                    <th class="lose-header">패</th>
+                                    <th class="time-header">시간</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr class="initial-row">
+                                    <td class="odds-cell">1.85</td>
+                                    <td class="odds-cell">3.40</td>
+                                    <td class="odds-cell">4.20</td>
+                                    <td class="time-cell">초기</td>
+                                </tr>
+                                <tr>
+                                    <td class="odds-cell">
+                                        1.83
+                                        <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/arrow-down.png" alt="하락" class="change-arrow">
+                                    </td>
+                                    <td class="odds-cell">
+                                        3.45
+                                        <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/arrow-up.png" alt="상승" class="change-arrow">
+                                    </td>
+                                    <td class="odds-cell">
+                                        4.25
+                                        <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/arrow-up.png" alt="상승" class="change-arrow">
+                                    </td>
+                                    <td class="time-cell">
+                                        <span class="date">12/14</span>
+                                        <span class="time">14:30</span>
+                                    </td>
+                                </tr>
+                                <tr class="highlighted-row">
+                                    <td class="odds-cell">
+                                        1.80
+                                        <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/arrow-down.png" alt="하락" class="change-arrow">
+                                    </td>
+                                    <td class="odds-cell">
+                                        3.50
+                                        <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/arrow-up.png" alt="상승" class="change-arrow">
+                                    </td>
+                                    <td class="odds-cell">
+                                        4.30
+                                        <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/arrow-up.png" alt="상승" class="change-arrow">
+                                    </td>
+                                    <td class="time-cell">
+                                        <span class="date">12/14</span>
+                                        <span class="time">15:45</span>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        
+                        <!-- Expand/Collapse Button -->
+                        <button class="expand-button">
+                            <span class="expand-text">상세정보 펼쳐보기</span>
+                            <span class="expand-arrow">▼</span>
+                        </button>
+                    </div>
+
+                    <!-- Change Indicator -->
+                    <div class="change-indicator">
+                        <div class="indicator-dot"></div>
+                        <span class="indicator-text">경기 시작 후 변동</span>
+                    </div>
+                </section>
+
+                <!-- International Odds Section -->
+                <section class="odds-flow-section international">
+                    <div class="section-header">
+                        <h2 class="section-title">해외 배당 흐름</h2>
+                    </div>
+                    
+                    <!-- Similar structure as domestic odds -->
+                    <div class="odds-table-container">
+                        <table class="odds-table">
+                            <thead>
+                                <tr>
+                                    <th class="win-header">승</th>
+                                    <th class="draw-header">무</th>
+                                    <th class="lose-header">패</th>
+                                    <th class="time-header">시간</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr class="initial-row">
+                                    <td class="odds-cell">1.87</td>
+                                    <td class="odds-cell">3.35</td>
+                                    <td class="odds-cell">4.15</td>
+                                    <td class="time-cell">초기</td>
+                                </tr>
+                                <tr>
+                                    <td class="odds-cell">1.85</td>
+                                    <td class="odds-cell">3.40</td>
+                                    <td class="odds-cell">4.20</td>
+                                    <td class="time-cell">
+                                        <span class="date">12/14</span>
+                                        <span class="time">14:30</span>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </section>
+            </div>
+
+            <!-- 핸디캡 Content -->
+            <div id="handicap-content" class="tab-content">
+                <div class="coming-soon">핸디캡 배당 정보 준비 중</div>
+            </div>
+
+            <!-- 언더오버 Content -->
+            <div id="underover-content" class="tab-content">
+                <div class="coming-soon">언더오버 배당 정보 준비 중</div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Custom JavaScript -->
+    <script src="js/script.js"></script>
+</body>
 </html>
