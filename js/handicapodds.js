@@ -1,11 +1,10 @@
-document.getElementById('section-handicap').innerHTML = `
-  <h2 class="h5 mb-3">Handicap</h2>
-  <div class="subsection mb-4">
-    <h3 class="h6">핸디캡 배당 흐름</h3>
-    <div>배당 테이블</div>
-  </div>
-  <div class="subsection">
-    <h3 class="h6">핸디캡 배당 통계</h3>
-    <div>원형 도넛 그래프</div>
-  </div>
-`; 
+function renderHandicapOdds() {
+  const html = `
+    <section id="section-handicap" class="market-section py-4">
+      <div class="odds-1x2-stats-title-bar">
+        <span class="odds-1x2-stats-title">핸디캡 배당 통계</span>
+      </div>
+    </section>
+  `;
+  $('#app').append(html);
+} 
