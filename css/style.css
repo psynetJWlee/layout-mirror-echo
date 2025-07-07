@@ -5,70 +5,89 @@
     box-sizing: border-box;
 }
 
-body {
-    font-family: 'Noto Sans KR', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-    background-color: #f5f5f5;
+body, html, .main-container {
+    font-family: 'Pretendard', 'Noto Sans KR', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif !important;
+    background-color: #fff !important;
     color: #333;
     line-height: 1.5;
+    width: 390px;
+    min-width: 390px;
+    max-width: 390px;
+    margin: 0 auto;
+    padding-top: 50px;
 }
 
-/* Header Styles */
-.odds-header {
-    background-color: #012840;
+/* ====== 커스텀 헤더 시안 스타일 ====== */
+.custom-header {
+    background: #012840;
     display: flex;
-    justify-content: space-between;
     align-items: center;
-    padding: 16px;
-    position: relative;
-    z-index: 10;
+    height: 50px;
+    position: fixed;
+    top: 0;
+    left: 50%; /* 화면의 정중앙 기준 */
+    transform: translateX(-50%); /* 자기 너비의 절반만큼 왼쪽으로 이동 */
+    width: 390px;
+    z-index: 100;
+    padding: 0 0 0 20px;
 }
-
 .header-left {
-    display: flex;
-    align-items: center;
-}
-
-.logo-container {
-    background-color: #012840;
+    background: #012840;
+    position: relative;
     width: 68px;
-    height: 68px;
-    border-radius: 34px;
+    height: 84px;
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-top: 16px;
+    flex-shrink: 0;
 }
-
-.logo {
-    width: 60px;
-    height: 60px;
-    object-fit: contain;
+.ai-icon {
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    border: 3px solid #fff;
+    background: #fff;
+    position: absolute;
+    top: 32px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
 }
-
 .header-title {
-    color: white;
-    font-size: 28px;
-    font-weight: bold;
-    text-align: center;
     flex: 1;
+    text-align: center;
+    color: #fff;
+    font-size: 32px;
+    font-weight: bold;
+    letter-spacing: 2px;
+    z-index: 1;
 }
-
 .header-right {
     display: flex;
-    align-items: stretch;
+    align-items: center;
+    gap: 12px;
+    margin-right: 12px;
 }
-
-.header-icon {
-    width: 50px;
-    height: 50px;
+.calc-icon, .close-icon {
+    width: 36px;
+    height: 36px;
     object-fit: contain;
+    background: transparent;
+    border-radius: 8px;
+    cursor: pointer;
 }
+.close-icon {
+    margin-left: 4px;
+}
+/* ====== 기존 헤더 스타일 무효화 ====== */
+.odds-header, .header-icon, .logo-container, .logo { display: none !important; }
 
 /* Main Container */
 .main-container {
-    max-width: 100%;
+    width: 390px;
+    min-width: 390px;
+    max-width: 390px;
     margin: 0 auto;
     background-color: white;
+    padding-top: 50px;
 }
 
 /* Match Info Styles */
@@ -126,6 +145,46 @@ body {
     font-weight: bold;
     width: 33px;
     margin: 0 20px;
+}
+
+/* ====== 마켓 내비게이션(Scrollspy) 시안 스타일 ====== */
+.market-scrollspy-nav {
+  background: #fff;
+  width: 100%;
+  position: sticky;
+  top: 0;
+  z-index: 20;
+}
+.market-scrollspy-nav .nav {
+  display: flex;
+  margin: 0;
+  padding: 0;
+  border: none;
+}
+.market-scrollspy-nav .nav-item {
+  flex: 1 1 0;
+  margin: 0;
+  padding: 0;
+}
+.market-scrollspy-nav .nav-link {
+  border-radius: 0 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  height: 48px;
+  line-height: 48px;
+  text-align: center;
+  font-size: 20px;
+  font-weight: 400;
+  color: #BDBDBD;
+  background: none !important;
+  border: none !important;
+  transition: none;
+}
+.market-scrollspy-nav .nav-link.active {
+  background: #012840 !important;
+  color: #fff !important;
+  font-weight: 700;
+  font-size: 24px;
 }
 
 /* Market Navigation */
@@ -543,7 +602,7 @@ body {
     }
     
     .header-title {
-        font-size: 20px;
+        font-size: 28px;
     }
     
     .logo-container {
@@ -579,3 +638,290 @@ body {
         font-size: 12px;
     }
 }
+
+/* ====== 승무패 배당흐름 타이틀 바 ====== */
+.odds-title-bar {
+  background: #2F6285;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+.odds-sort-btn {
+  position: absolute;
+  left: 12px;
+  top: 0;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: none;
+  border: none;
+  padding: 0;
+  margin: 0;
+  cursor: pointer;
+  height: 40px;
+  width: 40px;
+}
+.odds-sort-btn img {
+  width: 50px;
+  height: 50px;
+  object-fit: contain;
+}
+.odds-title-text {
+  color: #fff;
+  font-size: 18px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-align: center;
+}
+
+/* ====== 국내 배당 테이블 ====== */
+.odds-domestic-section {
+  margin: 0 16px 16px 16px;
+}
+.odds-domestic-title {
+  font-size: 24px;
+  font-weight: 700;
+  color: #333;
+  margin: 18px 0 8px 0;
+}
+.odds-domestic-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+  background: #fff;
+}
+.odds-domestic-table th,
+.odds-domestic-table td {
+  border: 0.5px solid #C3C3C3;
+  text-align: center;
+  padding: 6px 0;
+  font-size: 14px;
+  font-weight: 400;
+  background: #fff;
+}
+.odds-domestic-table th {
+  font-weight: 700;
+  background: #fff;
+}
+.odds-th-win { color: #BB2828; }
+.odds-th-draw { color: #000; }
+.odds-th-lose { color: #1E3384; }
+.odds-th-time { color: #000; }
+
+.odds-domestic-table td {
+  color: #000;
+}
+.odds-domestic-table td.odds-td-time {
+  color: #000 !important;
+  font-weight: 400 !important;
+}
+.odds-domestic-table td.odds-td-time span {
+  color: #8F8F8F !important;
+  font-weight: 400 !important;
+}
+.odds-domestic-table tr:last-child td {
+  background: #EFEFEF;
+}
+.odds-arrow.up {
+  color: #4BC076;
+  font-size: 14px;
+  font-weight: bold;
+  margin-left: 2px;
+}
+.odds-arrow.down {
+  color: #E23A3A;
+  font-size: 14px;
+  font-weight: bold;
+  margin-left: 2px;
+}
+
+.odds-domestic-table th.odds-th-win,
+.odds-domestic-table th.odds-th-draw,
+.odds-domestic-table th.odds-th-lose,
+.odds-domestic-table th.odds-th-time {
+  width: 25%;
+  min-width: 0;
+  max-width: none;
+}
+
+.market-sections {
+    width: 100%;
+}
+
+/* ====== 승무패 배당 통계 ====== */
+.odds-1x2-stats {
+  margin: 0 0 24px 0;
+  background: #fff;
+  border-radius: 0;
+  padding: 0 0 24px 0;
+}
+.odds-1x2-stats-title-bar {
+  background: #2F6285;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.odds-1x2-stats-title {
+  color: #fff;
+  font-size: 18px;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+.odds-1x2-stats-match-info {
+  margin: 20px 16px 8px 16px;
+  font-size: 20px;
+  font-weight: 700;
+  color: #000;
+}
+.odds-1x2-stats-match-label {
+  font-size: 24px;
+  font-weight: 700;
+  color: #000;
+}
+.odds-1x2-stats-match-count {
+  font-size: 20px;
+  font-weight: 700;
+  color: #1E3384;
+}
+.odds-1x2-stats-link {
+  color: #1E3384;
+  text-decoration: underline;
+  font-weight: 700;
+}
+.odds-1x2-stats-arrow {
+  color: #1E3384;
+  font-size: 20px;
+  font-weight: 700;
+}
+.odds-1x2-stats-odds-legend {
+  display: flex;
+  gap: 16px;
+  margin: 0 16px 8px 16px;
+  font-size: 16px;
+  font-weight: 700;
+  align-items: center;
+  justify-content: center;
+}
+.odds-1x2-stats-odds-box {
+  display: inline-block;
+  width: 18px;
+  height: 18px;
+  border-radius: 3px;
+  margin-right: 4px;
+  vertical-align: middle;
+}
+.odds-1x2-stats-odds-box.win { background: #BB2828; }
+.odds-1x2-stats-odds-box.draw { background: #BDBDBD; }
+.odds-1x2-stats-odds-box.lose { background: #1E3384; }
+
+/* 도넛 그래프 */
+.odds-1x2-stats-donut-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 16px 0 8px 0;
+}
+.odds-1x2-stats-donut {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  background: conic-gradient(
+    #BB2828 0% var(--win),
+    #BDBDBD var(--win) var(--draw),
+    #1E3384 var(--draw) 100%
+  );
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+.odds-1x2-stats-donut-center {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 120px;
+  height: 120px;
+  background: #fff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 32px;
+  font-weight: 700;
+  color: #BB2828;
+  text-align: center;
+}
+.odds-1x2-stats-donut-labels {
+  display: flex;
+  justify-content: center;
+  gap: 32px;
+  margin-top: 8px;
+  font-size: 18px;
+  font-weight: 700;
+}
+.odds-1x2-stats-donut-labels .draw { color: #BDBDBD; }
+.odds-1x2-stats-donut-labels .lose { color: #1E3384; }
+
+/* 배당별 통계 (막대그래프 등은 이후 추가) */
+
+/* ====== 배당별 통계 막대그래프 ====== */
+.odds-1x2-stats-by-odds {
+  margin: 24px 0 0 0;
+  padding: 0 16px;
+}
+.odds-1x2-stats-by-odds-title {
+  font-size: 20px;
+  font-weight: 700;
+  color: #000;
+  margin-bottom: 12px;
+}
+.odds-1x2-stats-by-odds-row {
+  margin-bottom: 28px;
+}
+.odds-1x2-stats-by-odds-label {
+  font-size: 20px;
+  font-weight: 700;
+  margin-right: 8px;
+  vertical-align: middle;
+}
+.odds-1x2-stats-by-odds-label.win { color: #BB2828; }
+.odds-1x2-stats-by-odds-label.draw { color: #888; }
+.odds-1x2-stats-by-odds-label.lose { color: #1E3384; }
+.odds-1x2-stats-by-odds-counts {
+  display: inline-block;
+  font-size: 18px;
+  font-weight: 400;
+  vertical-align: middle;
+  float: right;
+  text-align: right;
+  width: 120px;
+  color: #b3b3b3;
+}
+.odds-1x2-stats-by-odds-counts .win { color: #BB2828; margin-right: 2px; }
+.odds-1x2-stats-by-odds-counts .draw { color: #222; margin-right: 2px; }
+.odds-1x2-stats-by-odds-counts .lose { color: #1E3384; }
+.odds-1x2-stats-by-odds-counts .strong { font-weight: 700; text-decoration: underline; }
+
+.odds-1x2-stats-bar-bg {
+  width: 100%;
+  height: 12px;
+  background: #F5CFCF;
+  border-radius: 0;
+  margin-top: 6px;
+  display: flex;
+  overflow: hidden;
+  opacity: 0.3;
+}
+.odds-1x2-stats-bar {
+  height: 100%;
+  display: inline-block;
+  opacity: 0.3;
+}
+.odds-1x2-stats-bar.win { background: #BB2828; }
+.odds-1x2-stats-bar.draw { background: #BDBDBD; }
+.odds-1x2-stats-bar.lose { background: #AEB6D9; }

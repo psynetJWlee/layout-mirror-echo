@@ -1,0 +1,43 @@
+<header class="custom-header">
+  <div class="header-left">
+    <img src="/image/ai.gif" alt="AI" class="ai-icon" />
+  </div>
+  <div class="header-title">배당</div>
+  <div class="header-right">
+    <img src="/image/Calculator Icon.png" alt="계산기" class="calc-icon" />
+    <img src="/image/닫기 터치 영역.png" alt="닫기" class="close-icon" onclick="showList()" />
+  </div>
+</header>
+
+<section class="match-info">
+  <div class="team home-team">
+    <img src="/image/Group 1048.png" alt="홈팀" class="team-logo">
+    <div class="team-info">
+      <div class="team-color" style="background-color: #BB2828;"></div>
+      <div class="team-name">맨체스터C</div>
+    </div>
+  </div>
+  <div class="vs-text">VS</div>
+  <div class="team away-team">
+    <img src="/image/team logo.png" alt="원정팀" class="team-logo">
+    <div class="team-info">
+      <div class="team-color" style="background-color: #1E3384;"></div>
+      <div class="team-name">맨체스터U</div>
+    </div>
+  </div>
+</section>
+
+<nav id="market-nav" class="navbar market-scrollspy-nav px-0 sticky-top" style="background:#fff;z-index:20;">
+  <ul class="nav nav-pills nav-justified w-100" id="market-scrollspy">
+    <li class="nav-item"><a class="nav-link active" href="#section-1x2">승무패</a></li>
+    <li class="nav-item"><a class="nav-link" href="#section-handicap">핸디캡</a></li>
+    <li class="nav-item"><a class="nav-link" href="#section-overunder">언더오버</a></li>
+  </ul>
+</nav>
+
+<div class="market-sections" data-bs-spy="scroll" data-bs-target="#market-scrollspy" data-bs-offset="0" tabindex="0">
+  <section id="section-1x2" class="market-section py-4"></section>
+  <section id="section-handicap" class="market-section py-4"></section>
+  <section id="section-overunder" class="market-section py-4"></section>
+</div>
+<script>if(typeof initOddsContent==='function'){initOddsContent();}</script> 
