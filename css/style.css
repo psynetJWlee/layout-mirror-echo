@@ -36,7 +36,6 @@ body {
     padding: 0 0 0 20px;
 }
 .header-left {
-    background: #012840;
     position: relative;
     width: 68px;
     height: 84px;
@@ -1099,7 +1098,7 @@ body {
 
 /* ====== 상세정보 펼쳐보기/접기 버튼 ====== */
 .odds-table-toggle {
-  width: 96%;
+  width: 100%;
   margin: 12px 2% 0 2%;
   height: 44px;
   border-radius: 12px;
@@ -1132,11 +1131,10 @@ body {
 }
 
 #overseas-odds-graph {
-  width: 75%;
-  max-width: 220px;
-  min-width: 120px;
+  flex: 1 1 0%;
+  min-width: 0;
+  max-width: 100%;
   height: 100px;
-  flex-shrink: 1;
   display: block;
 }
 
@@ -1147,7 +1145,6 @@ body {
   gap: 8px;
   font-size: 20px;
   font-weight: bold;
-  margin-top: 0;
   min-width: 80px;
   max-width: 100px;
   flex-shrink: 0;
@@ -1201,7 +1198,7 @@ body {
   border: 0.5px solid #C3C3C3 !important;
   text-align: center !important;
   padding: 6px 0 !important;
-  font-size: 16px !important;
+  font-size: 14px !important;
 }
 .odds-domestic-table th.odds-th-win, .odds-overseas-table th.odds-th-win { color: #BB2828 !important; }
 .odds-domestic-table th.odds-th-draw, .odds-overseas-table th.odds-th-draw { color: #1F1F1F !important; }
@@ -1212,7 +1209,7 @@ body {
   border: 0.5px solid #C3C3C3 !important;
   text-align: center !important;
   padding: 6px 0 !important;
-  font-size: 16px !important;
+  font-size: 14px !important;
   font-weight: 400 !important;
   color: #1F1F1F !important;
   background: #fff !important;
@@ -1225,3 +1222,10 @@ body {
 .odds-overseas-graph { margin-bottom: 12px !important; }
 .odds-overseas-table-wrap { margin-top: 0 !important; }
 .odds-table-toggle { margin-top: 12px !important; }
+
+.live-odds {
+  background: #F3CBCC !important;
+}
+tr.live-odds > td {
+  background: #F3CBCC !important;
+}

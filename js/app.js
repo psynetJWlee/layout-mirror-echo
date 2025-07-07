@@ -1,4 +1,4 @@
-$(function() {
+$(document).ready(function() {
   $('#app').empty();
   renderTitle();
   renderMatchInfo();
@@ -6,4 +6,5 @@ $(function() {
   render1x2Odds();
   renderHandicapOdds();
   renderOverUnderOdds();
+  initOddsContent();
 }); 
