@@ -1177,8 +1177,7 @@ body {
 .odds-handicap-domestic-section, .odds-handicap-overseas-section {
   background: #fff !important;
   border-radius: 12px !important;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.04) !important;
-  margin: 0 0 24px 0 !important;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.04) !important;  
   padding: 24px 16px 16px 16px !important;
   width: 100% !important;
 }
@@ -1560,7 +1559,7 @@ tr.live-odds > td,
 .odds-underover-table {
   width: 100%;
   border-collapse: collapse;
-  margin-bottom: 8px;
+  margin-bottom: 32px;
   background: #fff;
 }
 .odds-handicap-table th,
