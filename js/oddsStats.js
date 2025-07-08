@@ -10,9 +10,9 @@ function renderOddsStats() {
         <span class="odds-1x2-stats-match-count"> <a href="#" class="odds-1x2-stats-link">${stats.matchCount}경기</a> <span class="odds-1x2-stats-arrow">&gt;</span></span>
       </div>
       <div class="odds-1x2-stats-odds-legend">
-        <span class="odds-1x2-stats-odds-win"><span class="odds-1x2-stats-odds-box win"></span> 승 ${stats.odds.win}</span>
-        <span class="odds-1x2-stats-odds-draw"><span class="odds-1x2-stats-odds-box draw"></span> 무 ${stats.odds.draw}</span>
-        <span class="odds-1x2-stats-odds-lose"><span class="odds-1x2-stats-odds-box lose"></span> 패 ${stats.odds.lose}</span>
+        <span class="odds-1x2-stats-odds-win"><span class="odds-1x2-stats-odds-box win"></span> 승 ${(stats.odds.win !== undefined ? Number(stats.odds.win).toFixed(2) : '-') }</span>
+        <span class="odds-1x2-stats-odds-draw"><span class="odds-1x2-stats-odds-box draw"></span> 무 ${(stats.odds.draw !== undefined ? Number(stats.odds.draw).toFixed(2) : '-') }</span>
+        <span class="odds-1x2-stats-odds-lose"><span class="odds-1x2-stats-odds-box lose"></span> 패 ${(stats.odds.lose !== undefined ? Number(stats.odds.lose).toFixed(2) : '-') }</span>
       </div>
       <div class="odds-1x2-stats-donut-wrap">
         <div class="odds-1x2-stats-donut">
@@ -28,7 +28,7 @@ function renderOddsStats() {
         ${stats.statsByOdds.map(item => `
           <div class="odds-1x2-stats-by-odds-row">
             <span class="odds-1x2-stats-odds-box ${item.type}"></span>
-            <span class="odds-1x2-stats-by-odds-label ${item.type}">${item.type === 'win' ? '승' : item.type === 'draw' ? '무' : '패'} ${item.odds}</span>
+            <span class="odds-1x2-stats-by-odds-label ${item.type}">${item.type === 'win' ? '승' : item.type === 'draw' ? '무' : '패'} ${(item.odds !== undefined ? Number(item.odds).toFixed(2) : '-')}</span>
             <span class="odds-1x2-stats-by-odds-counts">
               <span class="win${item.type === 'win' ? ' strong' : ''}">${item.win}승</span>
               <span class="draw${item.type === 'draw' ? ' strong' : ''}">${item.draw}무</span>

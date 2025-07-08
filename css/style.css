@@ -697,12 +697,18 @@ body {
   height: 50px;
   object-fit: contain;
 }
-.odds-title-text {
+.odds-title {
   color: #fff;
-  font-size: 18px;
+  font-size: 20px;
   font-weight: 700;
   letter-spacing: 1px;
   text-align: center;
+}
+.odds-flow-tile{
+  font-size: 24px;
+  font-weight: bold;
+  padding-bottom: 6px;
+
 }
 
 /* ====== 국내 배당 테이블 ====== */
@@ -845,7 +851,6 @@ body {
 
 /* ====== 승무패 배당 통계 ====== */
 .odds-1x2-stats {
-  margin: 0 0 24px 0;
   background: #fff;
   border-radius: 0;
   padding: 0 0 24px 0;
@@ -864,10 +869,14 @@ body {
   letter-spacing: 1px;
 }
 .odds-1x2-stats-match-info {
-  margin: 20px 16px 8px 16px;
+  margin: 16px 16px 8px 16px;
   font-size: 20px;
   font-weight: 700;
   color: #000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
 }
 .odds-1x2-stats-match-label {
   font-size: 24px;
@@ -883,6 +892,7 @@ body {
   color: #1E3384;
   text-decoration: underline;
   font-weight: 700;
+  padding-left: 6px;
 }
 .odds-1x2-stats-arrow {
   color: #1E3384;
@@ -918,8 +928,8 @@ body {
   margin: 16px 0 8px 0;
 }
 .odds-1x2-stats-donut {
-  width: 200px;
-  height: 200px;
+  width: 250px;
+  height: 250px;
   border-radius: 50%;
   background: conic-gradient(
     #BB2828 0% var(--win),
@@ -1090,10 +1100,8 @@ body {
   color: #F36B6B;
   font-size: 14px;
   margin: 8px 0 0 8px;
-  text-align: left;
-  display: flex;
+  text-align: right;
   align-items: center;
-  gap: 4px;
 }
 
 /* ====== 상세정보 펼쳐보기/접기 버튼 ====== */
@@ -1139,6 +1147,7 @@ body {
 }
 
 .odds-overseas-main-values {
+  text-align: right;
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
@@ -1152,6 +1161,7 @@ body {
 
 /* ====== 국내/해외 배당 테이블 및 감싸는 영역, 타이틀, 내부 요소 완전 통일 강제 리셋 ====== */
 .odds-domestic-section, .odds-overseas-section,
+.odds-handicap-domestic-section, .odds-handicap-overseas-section,
 .odds-domestic-title, .odds-overseas-title,
 .odds-domestic-table, .odds-overseas-table,
 .odds-domestic-table th, .odds-overseas-table th,
@@ -1163,7 +1173,8 @@ body {
   font-family: 'Pretendard', 'Noto Sans KR', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif !important;
 }
 
-.odds-domestic-section, .odds-overseas-section {
+.odds-domestic-section, .odds-overseas-section,
+.odds-handicap-domestic-section, .odds-handicap-overseas-section {
   background: #fff !important;
   border-radius: 12px !important;
   box-shadow: 0 2px 8px rgba(0,0,0,0.04) !important;
@@ -1207,8 +1218,8 @@ body {
 
 .odds-domestic-table td, .odds-overseas-table td {
   border: 0.5px solid #C3C3C3 !important;
-  text-align: center !important;
-  padding: 6px 0 !important;
+  text-align: right !important;
+  padding: 6px 4px !important;
   font-size: 14px !important;
   font-weight: 400 !important;
   color: #1F1F1F !important;
@@ -1228,4 +1239,369 @@ body {
 }
 tr.live-odds > td {
   background: #F3CBCC !important;
+}
+
+/* === 핸디캡 배당 흐름: 승무패와 동일한 스타일 적용 === */
+.odds-handicap-title-bar,
+.odds-1x2-stats-title-bar {
+  background: #2F6285;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.odds-handicap-title,
+.odds-1x2-stats-title {
+  color: #fff;
+  font-size: 18px;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+.odds-handicap-domestic-title,
+.odds-handicap-overseas-title,
+.odds-domestic-title {
+  font-size: 22px !important;
+  font-weight: 700 !important;
+  color: #1F1F1F !important;
+  margin-bottom: 12px !important;
+  margin-top: 0 !important;
+  letter-spacing: -0.5px !important;
+  padding: 0 0 0 0 !important;
+  background: #fff !important;
+}
+.odds-handicap-table,
+.odds-domestic-table,
+.odds-overseas-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 16px;
+  background: #fff;
+}
+.odds-handicap-table th,
+.odds-domestic-table th,
+.odds-overseas-table th {
+  background: #F5F7FA;
+  color: #222;
+  font-size: 16px;
+  font-weight: 700;
+  padding: 8px 0;
+  border-bottom: 1px solid #E5E5E5;
+}
+.odds-handicap-table td,
+.odds-domestic-table td,
+.odds-overseas-table td {
+  font-size: 16px;
+  color: #222;
+  text-align: center;
+  padding: 8px 0;
+  border-bottom: 1px solid #E5E5E5;
+}
+.odds-handicap-row.odds-handicap-live td {
+  color: #BB2828;
+  font-weight: bold;
+}
+
+/* 핸디캡 배당 테이블 컬럼별 스타일 승무패와 통일 */
+.odds-handicap-table th.odds-th-win { color: #BB2828 !important; }
+.odds-handicap-table th.odds-th-draw { color: #1F1F1F !important; }
+.odds-handicap-table th.odds-th-lose { color: #1E3384 !important; }
+.odds-handicap-table th.odds-th-time { color: #1F1F1F !important; }
+
+.odds-handicap-table td { font-size: 16px; color: #222; text-align: center; padding: 8px 0; border-bottom: 1px solid #E5E5E5; }
+.odds-handicap-table td.odds-td-time .date { color: #8F8F8F !important; font-weight: 400 !important; }
+.odds-handicap-table td.odds-td-time .time { color: #1F1F1F !important; font-weight: 400 !important; }
+.odds-handicap-table tr:last-child td { background: #EFEFEF !important; }
+
+.odds-handicap-table th, .odds-handicap-table td { border: 1px solid #E5E5E5; }
+.odds-handicap-table { width: 100%; border-collapse: collapse; margin-bottom: 16px; background: #fff; }
+
+.odds-handicap-table th { background: #F5F7FA; color: #222; font-size: 16px; font-weight: 700; padding: 8px 0; border-bottom: 1px solid #E5E5E5; }
+
+.odds-handicap-table .odds-arrow.up { color: #4BC076; font-size: 14px; font-weight: bold; margin-left: 2px; }
+.odds-handicap-table .odds-arrow.down { color: #E23A3A; font-size: 14px; font-weight: bold; margin-left: 2px; }
+
+.odds-handicap-row.odds-handicap-live td { background: #FFF3F3 !important; color: #BB2828; font-weight: bold; }
+
+/* 양옆 간격, 테이블 좌우 마진 통일 */
+.odds-handicap-domestic-section, .odds-handicap-overseas-section {
+  margin: 0 0 16px 0;
+  padding: 0 16px;
+}
+
+.odds-overunder-table,
+.odds-handicap-table,
+.odds-domestic-table,
+.odds-overseas-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 16px;
+  background: #fff;
+  table-layout: fixed;
+}
+.odds-overunder-table th,
+.odds-handicap-table th,
+.odds-domestic-table th,
+.odds-overseas-table th {
+  background: #F5F7FA;
+  color: #222;
+  font-size: 16px;
+  font-weight: 700;
+  padding: 8px 0;
+  border-bottom: 1px solid #E5E5E5;
+  border: 1px solid #E5E5E5;
+  text-align: center;
+}
+.odds-overunder-table td,
+.odds-handicap-table td,
+.odds-domestic-table td,
+.odds-overseas-table td {
+  font-size: 16px;
+  color: #222;
+  text-align: center;
+  padding: 8px 0;
+  border-bottom: 1px solid #E5E5E5;
+  border: 1px solid #E5E5E5;
+  background: #fff;
+}
+.odds-overunder-table th.odds-th-win,
+.odds-handicap-table th.odds-th-win,
+.odds-domestic-table th.odds-th-win,
+.odds-overseas-table th.odds-th-win { color: #BB2828 !important; }
+.odds-overunder-table th.odds-th-draw,
+.odds-handicap-table th.odds-th-draw,
+.odds-domestic-table th.odds-th-draw,
+.odds-overseas-table th.odds-th-draw { color: #1F1F1F !important; }
+.odds-overunder-table th.odds-th-lose,
+.odds-handicap-table th.odds-th-lose,
+.odds-domestic-table th.odds-th-lose,
+.odds-overseas-table th.odds-th-lose { color: #1E3384 !important; }
+.odds-overunder-table th.odds-th-time,
+.odds-handicap-table th.odds-th-time,
+.odds-domestic-table th.odds-th-time,
+.odds-overseas-table th.odds-th-time { color: #1F1F1F !important; }
+.odds-overunder-table td.odds-td-time .date,
+.odds-handicap-table td.odds-td-time .date,
+.odds-domestic-table td.odds-td-time .date,
+.odds-overseas-table td.odds-td-time .date { color: #8F8F8F !important; font-weight: 400 !important; }
+.odds-overunder-table td.odds-td-time .time,
+.odds-handicap-table td.odds-td-time .time,
+.odds-domestic-table td.odds-td-time .time,
+.odds-overseas-table td.odds-td-time .time { color: #1F1F1F !important; font-weight: 400 !important; }
+.odds-overunder-table tr:last-child td,
+.odds-handicap-table tr:last-child td,
+.odds-domestic-table tr:last-child td,
+.odds-overseas-table tr:last-child td { background: #EFEFEF !important; }
+
+/* 라이브 배당 행/셀 배경색 통일 */
+.live-odds,
+tr.live-odds > td,
+.odds-handicap-row.odds-handicap-live td,
+.odds-overunder-row.odds-overunder-live td {
+  background: #FFF3F3 !important;  
+}
+
+/* 컬럼 width 통일 (예시: 22% 22% 22% 34%) */
+.odds-overunder-table th,
+.odds-overunder-table td,
+.odds-handicap-table th,
+.odds-handicap-table td,
+.odds-domestic-table th,
+.odds-domestic-table td,
+.odds-overseas-table th,
+.odds-overseas-table td {
+  width: 25%;
+}
+.odds-overunder-table th.odds-th-time,
+.odds-overunder-table td.odds-td-time,
+.odds-handicap-table th.odds-th-time,
+.odds-handicap-table td.odds-td-time,
+.odds-domestic-table th.odds-th-time,
+.odds-domestic-table td.odds-td-time,
+.odds-overseas-table th.odds-th-time,
+.odds-overseas-table td.odds-td-time {
+  width: 25%;
+}
+
+.odds-1x2-stats-match-label,
+.odds-1x2-stats-match-count {
+  font-size: 24px !important;
+}
+.odds-1x2-stats-arrow {
+  display: none !important;
+}
+
+.odds-arrow.up, .odds-arrow.down {
+  min-width: 18px;
+  display: inline-block;
+  text-align: center;
+}
+
+/* ===== 언더오버 배당 흐름 (핸디캡과 완전히 동일하게) ===== */
+.odds-underover-flow {
+  margin: 0 0 24px 0;
+}
+.odds-underover-title-bar {
+  background: #2f6285;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-bottom: 2px solid #1e3384;
+  border-radius: 0;
+  position: relative;
+  width: 100%;
+  min-width: 390px;
+  max-width: 390px;
+  padding: 0;
+}
+.odds-underover-title {
+  color: #fff;
+  font-family: 'Pretendard', sans-serif;
+  font-weight: 700;
+  font-size: 20px;
+  letter-spacing: 0;
+  text-align: center;
+  flex: 1;
+  z-index: 1;
+}
+.odds-underover-title-bar .underover-title-icon {
+  position: absolute;
+  left: 16px;
+  top: 8px;
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.odds-underover-line-title {
+  font-size: 15px;
+  font-weight: 700;
+  margin: 12px 0 4px 0;
+  color: #222;
+  padding-left: 8px;
+}
+.odds-underover-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 8px;
+  background: #fff;
+}
+.odds-underover-table th,
+.odds-underover-table td {
+  border: 1px solid #e0e0e0;
+  padding: 6px 0;
+  text-align: center;
+  font-size: 15px;
+}
+.odds-underover-table th {
+  background: #f7f7f7;
+  font-weight: 700;
+  color: #222;
+}
+.odds-underover-row.live-odds {
+  background: #FFF3E0;
+}
+.odds-underover-td-under {
+  color: #BB2828;
+  font-weight: 700;
+}
+.odds-underover-td-draw {
+  color: #888;
+  font-weight: 700;
+}
+.odds-underover-td-over {
+  color: #1E3384;
+  font-weight: 700;
+}
+.odds-underover-td-time {
+  color: #888;
+  font-size: 13px;
+}
+.odds-arrow {
+  font-size: 13px;
+  margin-left: 2px;
+}
+
+/* ===== 배당 흐름/통계 타이틀 바, 라인 타이틀, 테이블 통일 ===== */
+.odds-handicap-title-bar,
+.odds-underover-title-bar {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  margin-bottom: 8px;
+  padding: 0 8px;
+  height: 36px;
+  background: #f7f7f7;
+  border-radius: 8px 8px 0 0;
+  border-bottom: 1px solid #e0e0e0;
+}
+.odds-handicap-title,
+.odds-underover-title {
+  font-size: 18px;
+  font-weight: 700;
+  color: #1E3384;
+  letter-spacing: -0.5px;
+}
+.odds-handicap-overseas-title,
+.odds-underover-line-title {
+  font-size: 22px !important;
+  font-weight: 700 !important;
+  margin: 0 0 4px 0 !important;
+  color: #1E3384 !important;
+  padding-left: 8px !important;
+  background: #e6f0fa !important;
+  border-radius: 8px 8px 0 0 !important;
+  height: 33px !important;
+  line-height: 33px !important;
+  letter-spacing: -0.5px !important;
+}
+.odds-handicap-table,
+.odds-underover-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 8px;
+  background: #fff;
+}
+.odds-handicap-table th,
+.odds-handicap-table td,
+.odds-underover-table th,
+.odds-underover-table td {
+  border: 1px solid #e0e0e0;
+  padding: 6px 0;
+  text-align: center;
+  font-size: 15px;
+}
+.odds-handicap-table th,
+.odds-underover-table th {
+  background: #f7f7f7;
+  font-weight: 700;
+  color: #222;
+}
+
+/* 언더오버 타이틀바 시안 강제 적용 */
+.odds-underover-title-bar {
+  background: #2f6285 !important;
+  height: 40px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  border-bottom: 2px solid #1e3384 !important;
+  border-radius: 0 !important;
+  position: relative !important;
+  width: 100% !important;
+  min-width: 390px !important;
+  max-width: 390px !important;
+  padding: 0 !important;
+  margin-bottom: 0 !important;
+}
+.odds-underover-title {
+  color: #fff !important;
+  font-family: 'Pretendard', sans-serif !important;
+  font-weight: 700 !important;
+  font-size: 20px !important;
+  letter-spacing: 0 !important;
+  text-align: center !important;
+  flex: 1 !important;
+  z-index: 1 !important;
 }

@@ -1,15 +1,13 @@
 function renderTitle() {
   const html = `
-    <header class="custom-header">
-      <div class="header-left">
-        <img src="/image/ai.gif" alt="AI" class="ai-icon" />
-      </div>
-      <div class="header-title">배당</div>
-      <div class="header-right">
-        <img src="/image/Calculator Icon.png" alt="계산기" class="calc-icon" />
-        <img src="/image/닫기 터치 영역.png" alt="닫기" class="close-icon" />
-      </div>
-    </header>
+    <div class="header-left">
+      <img src="/image/ai.gif" alt="AI" class="ai-icon" />
+    </div>
+    <div class="header-title">배당</div>
+    <div class="header-right">
+      <img src="/image/Calculator Icon.png" alt="계산기" class="calc-icon" />
+      <img src="/image/닫기 터치 영역.png" alt="닫기" class="close-icon" />
+    </div>
   `;
-  $('#app').append(html);
+  $('header.custom-header').html(html);
 } 
