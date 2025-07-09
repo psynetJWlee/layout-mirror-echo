@@ -1513,6 +1513,14 @@ tr.live-odds > td,
   margin-left: 2px;
 }
 
+.odds-underover-stats-donut-wrap {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto 20px;
+}
+
 /* ===== 배당 흐름/통계 타이틀 바, 라인 타이틀, 테이블 통일 ===== */
 .odds-handicap-title-bar,
 .odds-underover-title-bar {
