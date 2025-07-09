@@ -10,12 +10,7 @@ document.getElementById('section-overunder').innerHTML = `
       ${renderUnderOverOddsTable('해외')}
     </div>
   </div>
-  <div class="odds-underover-stats">
-    <div class="odds-title-bar">
-      <span class="odds-title">언더오버 배당 통계</span>
-    </div>
-    <div>원형 도넛 그래프</div>
-  </div>
+
 `;
 
 function renderUnderOverOddsTable(marketType) {
