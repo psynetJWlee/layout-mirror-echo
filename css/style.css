@@ -1173,7 +1173,7 @@ body {
   font-family: 'Pretendard', 'Noto Sans KR', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif !important;
 }
 
-.odds-domestic-section, .odds-overseas-section,
+.odds-domestic-section, .odds-overseas-section, .odds-underover-domestic-section, .odds-underover-overseas-section,
 .odds-handicap-domestic-section, .odds-handicap-overseas-section {
   background: #fff !important;
   border-radius: 12px !important;
@@ -1417,7 +1417,9 @@ tr.live-odds > td,
 .odds-domestic-table th.odds-th-time,
 .odds-domestic-table td.odds-td-time,
 .odds-overseas-table th.odds-th-time,
-.odds-overseas-table td.odds-td-time {
+.odds-overseas-table td.odds-td-time,
+.odds-underover-table th.odds-th-time,
+.odds-underover-table td.odds-td-time {
   width: 25%;
 }
 
@@ -1501,18 +1503,7 @@ tr.live-odds > td,
 .odds-underover-row.live-odds {
   background: #FFF3E0;
 }
-.odds-underover-td-under {
-  color: #BB2828;
-  font-weight: 700;
-}
-.odds-underover-td-draw {
-  color: #888;
-  font-weight: 700;
-}
-.odds-underover-td-over {
-  color: #1E3384;
-  font-weight: 700;
-}
+
 .odds-underover-td-time {
   color: #888;
   font-size: 13px;
@@ -1603,4 +1594,10 @@ tr.live-odds > td,
   text-align: center !important;
   flex: 1 !important;
   z-index: 1 !important;
+}
+.odds-underover-table td.odds-underover-td-under,
+.odds-underover-table td.odds-underover-td-draw,
+.odds-underover-table td.odds-underover-td-over,
+.odds-underover-table td.odds-underover-td-time {
+  width: 25%;
 }

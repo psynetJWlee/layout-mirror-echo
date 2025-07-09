@@ -2,8 +2,8 @@ function renderOddsStats() {
   const stats = odds1x2Stats;
   const html = `
     <div class="odds-1x2-stats">
-      <div class="odds-1x2-stats-title-bar">
-        <span class="odds-1x2-stats-title">승무패 배당 통계</span>
+      <div class="odds-title-bar">
+        <span class="odds-title">승무패 배당 통계</span>
       </div>
       <div class="odds-1x2-stats-match-info">
         <span class="odds-1x2-stats-match-label">승무패 배당률 일치 :</span>
@@ -13,15 +13,6 @@ function renderOddsStats() {
         <span class="odds-1x2-stats-odds-win"><span class="odds-1x2-stats-odds-box win"></span> 승 ${(stats.odds.win !== undefined ? Number(stats.odds.win).toFixed(2) : '-') }</span>
         <span class="odds-1x2-stats-odds-draw"><span class="odds-1x2-stats-odds-box draw"></span> 무 ${(stats.odds.draw !== undefined ? Number(stats.odds.draw).toFixed(2) : '-') }</span>
         <span class="odds-1x2-stats-odds-lose"><span class="odds-1x2-stats-odds-box lose"></span> 패 ${(stats.odds.lose !== undefined ? Number(stats.odds.lose).toFixed(2) : '-') }</span>
-      </div>
-      <div class="odds-1x2-stats-donut-wrap">
-        <div class="odds-1x2-stats-donut">
-          <div class="odds-1x2-stats-donut-center">승 ${stats.winCount}회</div>
-        </div>
-        <div class="odds-1x2-stats-donut-labels">
-          <span class="draw">무 ${stats.drawCount}회</span>
-          <span class="lose">패 ${stats.loseCount}회</span>
-        </div>
       </div>
       <div class="odds-1x2-stats-by-odds">
         <div class="odds-1x2-stats-by-odds-title">배당별 통계</div>
