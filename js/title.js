@@ -1,7 +1,7 @@
 function renderTitle() {
   const html = `
     <div class="header-left">
-      <img src="/image/ai.gif" alt="AI" class="ai-icon" />
+      <img src="/image/AI.gif" alt="AI" class="ai-icon" />
     </div>
     <div class="header-title">배당</div>
     <div class="header-right">

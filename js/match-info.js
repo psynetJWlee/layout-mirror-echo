@@ -9,7 +9,7 @@ function renderMatchInfo() {
     </div>
     <div class="vs-text">VS</div>
     <div class="team away-team">
-      <img src="/image/team logo.png" alt="맨체스터U" class="team-logo">
+      <img src="/image/Team logo.png" alt="맨체스터U" class="team-logo">
       <div class="team-info">
         <div class="team-color" style="background-color: #1E3384;"></div>
         <div class="team-name">맨체스터U</div>
