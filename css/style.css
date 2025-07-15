@@ -14,12 +14,10 @@ body, html, .main-container {
     min-width: 390px;
     max-width: 390px;
     margin: 0 auto;
-    padding-top: 50px;
+    
 }
 
-body {
-  padding-top: 20px;
-}
+
 
 /* ====== 커스텀 헤더 시안 스타일 ====== */
 .custom-header {
@@ -27,8 +25,7 @@ body {
     display: flex;
     align-items: center;
     height: 50px;
-    position: fixed;
-    top: 0;
+    position: relative;
     left: 50%; /* 화면의 정중앙 기준 */
     transform: translateX(-50%); /* 자기 너비의 절반만큼 왼쪽으로 이동 */
     width: 390px;
@@ -844,10 +841,7 @@ body {
   max-width: none;
 }
 
-.market-sections {
-  /* overflow-y: auto; */
-  /* height: calc(100vh - 180px); */
-}
+
 
 /* ====== 승무패 배당 통계 ====== */
 .odds-1x2-stats {

@@ -1,7 +1,7 @@
 function renderDomesticOdds() {
   const html = `
     <div class="odds-domestic-section">
-      <div class="odds-domestic-title">국내</div>
+      <div class="odds-flow-tile">국내</div>
       <table class="odds-domestic-table">
         <thead>
           <tr>
