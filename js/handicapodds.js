@@ -1,6 +1,10 @@
 function renderHandicapOdds() {
+  console.log('renderHandicapOdds 호출됨');
+  console.log('handicapOddsData:', window.handicapOddsData);
   const domesticList = (window.handicapOddsData || []).filter(item => item.marketType === '국내');
   const overseasList = (window.handicapOddsData || []).filter(item => item.marketType === '해외');
+  console.log('domesticList:', domesticList);
+  console.log('overseasList:', overseasList);
 
   function renderTable(oddsArr) {
     if (!oddsArr) return '';
