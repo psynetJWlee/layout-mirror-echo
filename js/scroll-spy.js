@@ -8,18 +8,27 @@ function initScrollSpy() {
     let currentSection = '';
     const scrollTop = $(window).scrollTop() + navHeight + 50; // 네비게이션 높이 + 여유분
     
-    // 현재 보이는 섹션 찾기
-    sections.forEach(sectionId => {
-      const section = $('#' + sectionId);
-      if (section.length) {
-        const sectionTop = section.offset().top;
-        const sectionBottom = sectionTop + section.outerHeight();
-        
-        if (scrollTop >= sectionTop && scrollTop < sectionBottom) {
-          currentSection = sectionId;
+    // 첫 번째 섹션(승무패)의 시작 위치 확인
+    const firstSection = $('#section-1x2');
+    const firstSectionTop = firstSection.length ? firstSection.offset().top : 0;
+    
+    // 페이지 상단에서 첫 번째 섹션까지는 승무패를 활성화
+    if (scrollTop < firstSectionTop) {
+      currentSection = 'section-1x2';
+    } else {
+      // 현재 보이는 섹션 찾기
+      sections.forEach(sectionId => {
+        const section = $('#' + sectionId);
+        if (section.length) {
+          const sectionTop = section.offset().top;
+          const sectionBottom = sectionTop + section.outerHeight();
+          
+          if (scrollTop >= sectionTop && scrollTop < sectionBottom) {
+            currentSection = sectionId;
+          }
         }
-      }
-    });
+      });
+    }
     
     // active 클래스 업데이트
     navLinks.removeClass('active');

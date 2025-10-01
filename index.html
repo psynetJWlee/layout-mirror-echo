@@ -3,32 +3,110 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=390, user-scalable=no">
-  <title>스포츠 배당 분석</title>
+  <title>경기 리스트</title>
   <link rel="stylesheet" href="css/style.css">
-  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <link rel="stylesheet" href="css/list.css">
+  <link rel="icon" type="image/png" href="image/event-logo.png">
 </head>
 <body>
-  <div id="app">
-    <header class="custom-header"></header>
-    <section class="match-info"></section>
-    <nav id="market-nav" class="navbar market-scrollspy-nav px-0 sticky-top"></nav>
-    <section id="section-1x2" class="market-section py-4"></section>
-    <section id="section-handicap" class="market-section py-4"></section>
-    <section id="section-overunder" class="market-section py-4"></section>
-    <div id="overunder-stats" class="odds-undercover-stats"></div>
+  <!-- 종목 내비게이션 -->
+  <nav class="list-sport-navigation">
+    <div class="list-sport-nav-container">
+      <button class="list-sport-nav-item active" data-sport="all">전체</button>
+      <button class="list-sport-nav-item" data-sport="soccer">축구</button>
+      <button class="list-sport-nav-item" data-sport="baseball">야구</button>
+      <button class="list-sport-nav-item" data-sport="basketball">농구</button>
+      <button class="list-sport-nav-item" data-sport="volleyball">배구</button>
+    </div>
+  </nav>
+
+  <!-- 날짜 내비게이션 -->
+  <div class="list-date-navigation">
+    <button class="list-date-nav-group list-date-prev-group">
+      
+      <span class="list-date-prev-day"></span>
+    </button>
+    <button class="list-date-current">
+      <span class="list-date-current-text"></span>      
+    </button>
+    <button class="list-date-nav-group list-date-next-group">
+      <span class="list-date-next-day"></span>
+      
+    </button>
   </div>
-  <script src="js/1x2oddsdata.js"></script>
-  <script src="js/handicapoddsdata.js"></script>
-  <script src="js/overunderoddsdata.js"></script>
-  <script src="js/title.js"></script>
-  <script src="js/match-info.js"></script>
-  <script src="js/market-nav.js"></script>
-  <script src="js/1x2odds.js"></script>
-  <script src="js/handicapodds.js"></script>  
-  <script src="js/overundersodds.js"></script>
-  <script src="js/oddsStats.js"></script>
-  <script src="js/domesticOdds.js"></script>
-  <script src="js/scroll-spy.js"></script>
-  <script src="js/app.js"></script>
+
+  <!-- 경기 리스트 컨테이너 -->
+  <div class="list-match-container">
+    <div class="list-match-header">
+      <h1 class="list-match-title">경기 목록</h1>
+    </div>
+
+    <!-- 로딩 상태 -->
+    <div class="list-loading-container" id="loadingContainer">
+      <div class="list-loading-spinner"></div>
+      <p>경기 목록을 불러오는 중...</p>
+    </div>
+
+    <!-- 경기 리스트 -->
+    <div class="list-match-list" id="matchList">
+      <!-- 경기 카드들이 여기에 동적으로 추가됩니다 -->
+    </div>
+
+    <!-- 스크롤 업 플로팅 버튼 -->
+    <button id="scrollToTopBtn" class="scroll-to-top-btn" title="맨 위로">
+      ↑
+    </button>
+
+    <!-- 빈 상태 -->
+    <div class="list-empty-state" id="emptyState" style="display: none;">
+      <div class="list-empty-icon">🏟️</div>
+      <h3>경기 정보가 없습니다</h3>
+      <p>선택한 조건에 맞는 경기가 없습니다.</p>
+    </div>
+
+    <!-- 광고 섹션 -->
+    <section class="ad-section">
+      <img src="image/광고 1.gif" alt="광고 1" class="ad-image">
+    </section>
+  </div>
+
+  <!-- 경기 카드 템플릿 -->
+  <template id="matchCardTemplate">
+  <div class="list-match-card" data-match-id="">
+  <div class="list-match-card-header">
+  <div class="list-match-sport-badge"></div>
+  <div class="list-match-league"></div>
+  <div class="list-match-time"></div>
+  </div>
+  <div class="list-match-card-body">
+  <div class="list-match-teams">
+    <div class="list-team list-home-team">
+      <img src="/image/Team Logo.png" alt="홈팀" class="list-team-logo">
+      <div class="list-team-info">
+        <span class="list-team-name"></span>
+        <span class="list-team-score"></span>
+      </div>
+    </div>
+    <div class="list-match-vs">VS</div>
+    <div class="list-team list-away-team">
+      <img src="/image/Team Logo.png" alt="원정팀" class="list-team-logo">
+      <div class="list-team-info">
+        <span class="list-team-name"></span>
+        <span class="list-team-score"></span>
+      </div>
+    </div>
+  </div>
+  </div>
+  <div class="list-match-card-footer">
+  <button class="list-btn-detail" onclick="goToDetail('')">상세보기</button>
+  </div>
+  </div>
+  </template>
+
+  <!-- 스크립트 -->
+  <script src="js/unifiedOddsData.js"></script>
+  <script src="js/matchListData.js"></script>
+  <script src="js/dateNavigation.js"></script>
+  <script src="js/list.js"></script>
 </body>
 </html>

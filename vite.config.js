@@ -8,7 +8,15 @@ export default defineConfig({
     assetsDir: 'assets',
   },
   server: {
-    port: 8080,
-    host: true
+    port: 8081,
+    host: true,
+    proxy: {
+      '/api': {
+        target: 'http://data.psynet.co.kr:10005',
+        changeOrigin: true,
+        secure: false,
+        rewrite: (path) => path.replace(/^\/api/, '')
+      }
+    }
   }
 });

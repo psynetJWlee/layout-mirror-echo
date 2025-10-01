@@ -1,0 +1,420 @@
+/* 경기 리스트 페이지 스타일 */
+
+/* 종목 내비게이션 */
+.list-sport-navigation {
+  background: #fff;
+  border-bottom: 1px solid #E9ECEF;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+/* 날짜 내비게이션 */
+.list-date-navigation {
+  background: #fff;
+  border-bottom: 1px solid #E9ECEF;
+  padding: 12px 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  gap: 16px;
+}
+
+/* 날짜 내비게이션 그룹 (화살표 + 날짜) */
+.list-date-nav-group {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 4px;
+  background: none;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  min-width: 60px;
+}
+
+.list-date-nav-group:hover {
+  background: #f8f9fa;
+}
+
+.list-date-nav-group:hover .list-date-nav-arrow,
+.list-date-nav-group:hover .list-date-prev-day,
+.list-date-nav-group:hover .list-date-next-day {
+  color: #1E3384;
+}
+
+.list-date-nav-arrow {
+  font-size: 16px;
+  color: #666;
+  transition: color 0.2s ease;
+}
+
+.list-date-prev-day,
+.list-date-next-day {
+  font-size: 12px;
+  color: #999;
+  text-align: center;
+  transition: color 0.2s ease;
+}
+
+.list-date-current {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: #1E3384;
+  color: #fff;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 6px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.list-date-current:hover {
+  background: #152a6b;
+}
+
+.list-date-calendar-icon {
+  font-size: 14px;
+}
+
+.list-sport-nav-container {
+  display: flex;
+  max-width: 390px;
+  margin: 0 auto;
+  padding: 0 12px;
+}
+
+.list-sport-nav-item {
+  flex: 1;
+  padding: 12px 4px;
+  border: none;
+  background: none;
+  font-size: 13px;
+  font-weight: 500;
+  color: #666;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  border-bottom: 2px solid transparent;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.list-sport-nav-item:hover {
+  color: #1E3384;
+}
+
+.list-sport-nav-item.active {
+  color: #1E3384;
+  border-bottom-color: #1E3384;
+}
+
+/* 경기 리스트 컨테이너 */
+.list-match-container {
+  max-width: 390px;
+  margin: 0 auto;
+  padding: 16px 12px;
+}
+
+.list-match-header {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-bottom: 20px;
+  gap: 12px;
+}
+
+.list-match-title {
+  font-size: 20px;
+  font-weight: 700;
+  color: #333;
+  margin: 0;
+}
+
+.list-match-filters {
+  display: flex;
+  gap: 8px;
+  width: 100%;
+}
+
+.list-filter-select {
+  flex: 1;
+  padding: 6px 8px;
+  border: 1px solid #E9ECEF;
+  border-radius: 6px;
+  font-size: 13px;
+  background: #fff;
+  color: #333;
+  cursor: pointer;
+}
+
+.list-filter-select:focus {
+  outline: none;
+  border-color: #1E3384;
+}
+
+/* 로딩 상태 */
+.list-loading-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 60px 20px;
+  text-align: center;
+}
+
+.list-loading-spinner {
+  width: 40px;
+  height: 40px;
+  border: 4px solid #f3f3f3;
+  border-top: 4px solid #1E3384;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin-bottom: 16px;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.list-loading-container p {
+  color: #666;
+  font-size: 16px;
+  margin: 0;
+}
+
+/* 경기 리스트 */
+.list-match-list {
+  display: grid;
+  gap: 16px;
+}
+
+/* 경기 카드 */
+.list-match-card {
+  background: #fff;
+  border: 1px solid #E9ECEF;
+  padding: 16px;
+  transition: all 0.2s ease;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+}
+
+.list-match-card:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transform: translateY(-2px);
+}
+
+.list-match-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.list-match-sport-badge {
+  padding: 3px 6px;
+  background: #1E3384;
+  color: #fff;
+  font-size: 11px;
+  font-weight: 600;
+  border-radius: 4px;
+  text-transform: uppercase;
+}
+
+.list-match-league {
+  font-size: 13px;
+  color: #666;
+  font-weight: 500;
+}
+
+.list-match-time {
+  font-size: 13px;
+  color: #999;
+}
+
+.list-match-card-body {
+  margin-bottom: 16px;
+  display: flex;
+  flex-direction: row;
+}
+
+.list-match-teams {
+  display: flex;
+  flex-direction: row;
+  gap: 12px;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.list-team {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  gap: 12px;
+}
+
+.list-team-logo {
+  width: 60px;
+  height: 60px;
+  object-fit: contain;
+  /* border-radius: 50%; */
+  /* background: #f8f9fa; */
+  /* border: 1px solid #e9ecef; */
+}
+
+.list-team-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  flex: 1;
+}
+
+.list-team-name {
+  font-size: 20px;
+  font-weight: 600;
+  color: #333;
+  text-align: left;
+  line-height: 1.2;
+}
+
+.list-team-score {
+  font-size: 16px;
+  font-weight: 700;
+  color: #1E3384;
+}
+
+.list-match-vs {
+  font-size: 13px;
+  font-weight: 600;
+  color: #999;
+  padding: 8px 0;
+  text-align: center;
+  top: 53%;
+  position: relative;
+}
+
+.list-match-card-footer {
+  display: flex;
+  justify-content: center;
+}
+
+.list-btn-detail {
+  padding: 8px 20px;
+  background: #1E3384;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.list-btn-detail:hover {
+  background: #152a6b;
+}
+
+/* 빈 상태 */
+.list-empty-state {
+  text-align: center;
+  padding: 60px 20px;
+}
+
+.list-empty-icon {
+  font-size: 48px;
+  margin-bottom: 16px;
+}
+
+.list-empty-state h3 {
+  font-size: 18px;
+  font-weight: 600;
+  color: #333;
+  margin: 0 0 8px 0;
+}
+
+.list-empty-state p {
+  font-size: 14px;
+  color: #666;
+  margin: 0;
+}
+
+/* 스포츠별 색상 */
+.list-sport-soccer .list-match-sport-badge {
+  background: #28a745;
+}
+
+.list-sport-baseball .list-match-sport-badge {
+  background: #fd7e14;
+}
+
+.list-sport-basketball .list-match-sport-badge {
+  background: #dc3545;
+}
+
+.list-sport-volleyball .list-match-sport-badge {
+  background: #6f42c1;
+}
+
+.list-sport-tennis .list-match-sport-badge {
+  background: #20c997;
+}
+
+.list-sport-badminton .list-match-sport-badge {
+  background: #e83e8c;
+}
+
+.list-sport-table_tennis .list-match-sport-badge {
+  background: #6f42c1;
+}
+
+.list-sport-hockey .list-match-sport-badge {
+  background: #17a2b8;
+}
+
+.list-sport-rugby .list-match-sport-badge {
+  background: #ffc107;
+}
+
+.list-sport-cricket .list-match-sport-badge {
+  background: #6c757d;
+}
+
+
+/* 스크롤 업 플로팅 버튼 */
+.list-scroll-to-top-btn {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  width: 50px;
+  height: 50px;
+  background: #1E3384;
+  color: white;
+  border: none;
+  font-size: 20px;
+  font-weight: bold;  
+  transition: all 0.3s ease;
+  opacity: 0;
+  visibility: hidden;
+  z-index: 1000;
+}
+
+.list-scroll-to-top-btn:hover {
+  background: #152a6b;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(30, 51, 132, 0.4);
+}
+
+.list-scroll-to-top-btn.show {
+  opacity: 1;
+  visibility: visible;
+} 
